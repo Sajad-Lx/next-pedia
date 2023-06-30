@@ -1,50 +1,41 @@
 export default async function MainPage() {
   return (
     <>
-      <section>
-        <h1>Main page</h1>
-        <h1>Main page</h1>
-        <h1>Main page</h1>
-        <h1>Main page</h1>
-        <h1>Main page</h1>
-        <h1>Main page</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa natus
-          minima, illo necessitatibus, eaque iure, impedit dolor dicta ducimus
-          neque veniam eos amet assumenda? Magni saepe exercitationem magnam
-          quaerat consectetur ex ad maiores quis excepturi laudantium cum dolore
-          dignissimos adipisci dolorem non, sapiente debitis possimus corporis
-          eaque est quam. Reprehenderit tenetur laborum officiis enim corrupti
-          laudantium distinctio facilis necessitatibus quisquam asperiores,
-          fugiat totam ipsa. Mollitia officia ullam magni, corporis maxime,
-          repellat sed possimus exercitationem quas dignissimos sequi quae
-          libero harum pariatur recusandae perspiciatis voluptas esse iste,
-          ipsam consequuntur est odit. Doloribus officia inventore omnis! Quas
-          dolores pariatur architecto, commodi cupiditate natus, blanditiis
-          facilis qui corrupti soluta beatae exercitationem, ducimus numquam
-          voluptatem velit dolorum consequuntur praesentium molestias at
-          incidunt hic! Minus pariatur libero velit cumque. Eaque, quisquam sit
-          doloribus, est quod nesciunt quos modi fugit et porro nostrum unde ex
-          non libero minus veniam voluptate maxime aspernatur tempora totam
-          repellendus! Qui reprehenderit possimus veniam nobis quam. Repellendus
-          praesentium totam maxime odit enim tenetur similique non error harum
-          voluptatibus molestias consequuntur corrupti officia repellat,
-          deserunt autem unde eveniet at dicta ducimus doloremque! Veritatis
-          quas odit excepturi soluta vero accusantium optio cumque ducimus
-          consequuntur dolores unde, nam reprehenderit provident ea voluptates,
-          doloribus dolorum voluptatem aut earum dolor est quam laborum. Itaque
-          sequi nostrum nihil optio architecto modi praesentium tempore cum.
-          Temporibus, error dolorum dolor commodi odit ad expedita et quas
-          consequatur cupiditate ipsa voluptatem rem rerum! Amet iure delectus
-          velit temporibus, maiores aperiam ea. Nesciunt, nostrum officiis? Ipsa
-          vitae, molestias quaerat repellat neque eos distinctio explicabo
-          reprehenderit adipisci, ullam nisi sint eaque debitis quibusdam sunt
-          nobis maiores provident aut magnam hic! Vel doloremque officia tempora
-          sunt totam consequuntur temporibus accusantium blanditiis ex?
-          Perferendis facere animi laborum, quaerat, corporis neque nulla maxime
-          eum ipsa accusantium, itaque exercitationem voluptatum! Iste illum
-          neque magni delectus aspernatur.
-        </p>
+      <section className="mx-5">
+        <div className="relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32">
+          <h1 className="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-white">
+            Welcome to the Blog Creation Site!
+          </h1>
+          <p className="mt-6 text-lg text-slate-600 text-center max-w-3xl mx-auto dark:text-slate-400">
+            This site is all about helping you create and manage your own blog.
+            We offer a variety of features to make it easy for you to get
+            started.
+          </p>
+          <div className="pt-10 text-center">
+            <div>
+              <h2 className="text-lg font-bold">How to use</h2>
+              <ul>
+                <li>Login or create an account.</li>
+                <li>Start writing a blog post.</li>
+                <li>Publish your blog post.</li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-6 sm:mt-10 flex justify-center space-x-6 text-sm">
+            <a
+              className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-base text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-emerald-500 dark:highlight-white/20 dark:hover:bg-emerald-400"
+              href="/register"
+            >
+              Get started
+            </a>
+            <a
+              className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-base text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-emerald-500 dark:highlight-white/20 dark:hover:bg-emerald-400"
+              href="/blog"
+            >
+              See blog posts
+            </a>
+          </div>
+        </div>
       </section>
     </>
   );

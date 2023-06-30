@@ -34,10 +34,10 @@ export function MainNav({ items, children }: MainNavProps) {
               key={index}
               href={item.disabled ? "#" : item.href}
               className={cn(
-                "flex items-center text-lg font-medium transition-colors hover:ring-2 ring-black dark:ring-white rounded-full px-4",
+                "flex items-center text-lg font-medium transition-colors hover:ring-2 rounded-full px-4",
                 item.href.startsWith(`/${segment}`)
-                  ? "text-white bg-black dark:text-black dark:bg-white"
-                  : "text-black dark:text-white",
+                  ? "bg-fuchsia-200 dark:bg-fuchsia-400"
+                  : "",
                 item.disabled && "cursor-not-allowed opacity-80"
               )}
             >
