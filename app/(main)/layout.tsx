@@ -1,6 +1,8 @@
 import { MainNav } from "@/components/MainNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import Attention from "@/components/ui/Attention";
 import { mainConfig } from "@/config/main";
+import { databaseConnected } from "@/lib/databaseCheck";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -14,6 +16,8 @@ export default async function MainLayout({ children }: MainLayoutProps) {
           <MainNav items={mainConfig.mainNav} />
         </div>
       </header>
+
+      {await databaseConnected() ? "" : <Attention text="⚠️ Attention: Database not connected!"/> }
 
       <main className="flex-1">{children}</main>
 
