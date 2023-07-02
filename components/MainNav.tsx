@@ -8,6 +8,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/Icons";
 import { MobileNav } from "@/components/MobileNav";
+import { ModeToggle } from "@/components/ModeToggle";
 
 interface MainNavProps {
   items?: MainNavItem[];
@@ -28,7 +29,7 @@ export function MainNav({ items, children }: MainNavProps) {
       </Link>
 
       {items?.length ? (
-        <nav className="relative hidden items-center ml-auto gap-6 md:flex">
+        <nav className="relative hidden items-center ml-auto mr-3 gap-6 md:flex">
           {items?.map((item, index) => (
             <Link
               key={index}
@@ -60,10 +61,12 @@ export function MainNav({ items, children }: MainNavProps) {
         <MobileNav items={items}>{children}</MobileNav>
       )}
 
-      <Link href="/" className="relative flex items-center ml-auto md:hidden">
+      <Link href="/" className="relative flex items-center ml-auto mr-3 md:hidden">
         {/* <Icons.logo /> */}
         <span className="font-bold text-xl md:hidden">{siteConfig.name}</span>
       </Link>
+      
+      <ModeToggle />
     </div>
   );
 }

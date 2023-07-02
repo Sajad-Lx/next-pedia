@@ -37,7 +37,7 @@ export default function RegisterPage() {
         Login
       </Link>
 
-      <div className="text-5xl font-semibold pb-8">{siteConfig.name}</div>
+      <div className="text-5xl font-semibold pb-5">{siteConfig.name}</div>
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="flex flex-col space-y-2 text-center">
           {/* <Icons.logo className="mx-auto h-6 w-6" /> */}

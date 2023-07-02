@@ -8,9 +8,9 @@ type variantProps = {
 
 const buttonVariants = ({ variant, size }: variantProps) => {
   const variantDefault =
-    "bg-gray-50 text-gray-900 hover:bg-gray-50/90 dark:bg-gray-900 dark:text-gray-50 dark:hover:bg-gray-900/90";
+    "bg-primary text-primary-foreground hover:bg-primary/90";
   const variantGhost =
-    "hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-700/80 dark:hover:text-gray-100";
+    "hover:bg-accent hover:text-accent-foreground";
 
   const sizeDefault = "h-10 py-2 px-4";
   const sizeSm = "h-9 px-3 rounded-md";

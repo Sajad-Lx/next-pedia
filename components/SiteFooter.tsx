@@ -1,7 +1,6 @@
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/Icons";
-import { ModeToggle } from "./ModeToggle";
 
 export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
@@ -33,8 +32,6 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
               .
             </p>
           </div>
-          {/* Need to fix issue */}
-          {/* <ModeToggle /> */}
         </div>
       </div>
     </footer>

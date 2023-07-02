@@ -3,12 +3,19 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
-import { Inter } from "next/font/google";
+import { Inter as FontSans } from "next/font/google";
+import localFont from "next/font/local"
 
-const inter = Inter({
+const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
-});
+})
+
+// Font files can be colocated inside of `pages`
+const fontHeading = localFont({
+  src: "../assets/fonts/CalSans-SemiBold.woff2",
+  variable: "--font-heading",
+})
 
 export const metadata = {
   title: {
@@ -48,8 +55,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head />
       <body
         className={cn(
-          inter.className,
-          "min-h-screen bg-background font-sans antialiased"
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable,
+          fontHeading.variable
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
