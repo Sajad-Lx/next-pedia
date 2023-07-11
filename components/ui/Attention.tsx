@@ -1,9 +1,11 @@
 interface AttentionProps {
-    text: string;
+  text: string
 }
 
-export default function Attention({text}: AttentionProps) {
+export default function Attention({ text }: AttentionProps) {
   return (
-    <div className="w-full text-center text-foreground bg-orange-600 py-1">{text}</div>
+    <div className="w-full bg-orange-500 py-1 text-center text-foreground">
+      {text}
+    </div>
   )
 }

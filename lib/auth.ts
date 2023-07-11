@@ -1,9 +1,10 @@
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import type { NextAuthOptions } from "next-auth";
-import GitHubProvider from "next-auth/providers/github";
-import CredentialsProvider from "next-auth/providers/credentials";
-import { prisma as db } from "@/lib/prisma";
-import { hashPassword } from "@/lib/hashPass";
+import { PrismaAdapter } from "@next-auth/prisma-adapter"
+import type { NextAuthOptions } from "next-auth"
+import CredentialsProvider from "next-auth/providers/credentials"
+import GitHubProvider from "next-auth/providers/github"
+
+import { hashPassword } from "@/lib/hashPass"
+import { prisma as db } from "@/lib/prisma"
 
 export const authOptions: NextAuthOptions = {
   // This is a temporary fix for prisma client.
@@ -28,14 +29,14 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         try {
           if (!credentials) {
-            return null;
+            return null
           }
 
           const user = await db.user.findUnique({
             where: {
               email: credentials.email,
             },
-          });
+          })
           if (
             !user ||
             !(
@@ -45,11 +46,11 @@ export const authOptions: NextAuthOptions = {
               })) === user.password
             )
           ) {
-            return null;
+            return null
           }
-          return user;
+          return user
         } catch (e) {
-          return null;
+          return null
         }
       },
     }),
@@ -59,12 +60,12 @@ export const authOptions: NextAuthOptions = {
     async session({ token, session }) {
       if (token && session.user !== undefined) {
         // session.user.id = token.id;
-        session.user.name = token.name;
-        session.user.email = token.email;
-        session.user.image = token.picture;
+        session.user.name = token.name
+        session.user.email = token.email
+        session.user.image = token.picture
       }
 
-      return session;
+      return session
     },
 
     async jwt({ token, user }) {
@@ -72,13 +73,13 @@ export const authOptions: NextAuthOptions = {
         where: {
           email: token.email,
         },
-      });
+      })
 
       if (!dbUser) {
         if (user) {
-          token.id = user?.id;
+          token.id = user?.id
         }
-        return token;
+        return token
       }
 
       return {
@@ -86,7 +87,7 @@ export const authOptions: NextAuthOptions = {
         name: dbUser.name,
         email: dbUser.email,
         picture: dbUser.image,
-      };
+      }
     },
   },
-};
+}

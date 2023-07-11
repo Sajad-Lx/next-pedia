@@ -1,11 +1,12 @@
-"use client";
+"use client"
 
-import { Icons } from "@/components/Icons";
-import { toast } from "react-hot-toast";
+import { toast } from "react-hot-toast"
+
+import { Icons } from "@/components/Icons"
 
 interface ToastProps {
-  title: string;
-  description?: string;
+  title: string
+  description?: string
 }
 
 export default function CustomToast({ title, description }: ToastProps) {
@@ -16,9 +17,9 @@ export default function CustomToast({ title, description }: ToastProps) {
           t.visible
             ? "animate-in slide-in-from-top"
             : "animate-out slide-out-to-top-0"
-        } max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+        } pointer-events-auto flex w-full max-w-sm rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5`}
       >
-        <div className="flex-1 w-0 p-4">
+        <div className="w-0 flex-1 p-4">
           <div className="flex items-start">
             <div className="ml-3 flex-1">
               <p className="text-sm font-medium text-gray-900">{title}</p>
@@ -29,7 +30,7 @@ export default function CustomToast({ title, description }: ToastProps) {
         <div className="flex border-l border-gray-200">
           <button
             onClick={() => toast.remove(t.id)}
-            className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="flex w-full items-center justify-center rounded-none rounded-r-lg border border-transparent p-4 text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             <Icons.close />
           </button>
@@ -39,5 +40,5 @@ export default function CustomToast({ title, description }: ToastProps) {
     {
       duration: 6000,
     }
-  );
+  )
 }

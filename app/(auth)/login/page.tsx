@@ -1,16 +1,16 @@
-import { Metadata } from "next";
-import Link from "next/link";
+import { Metadata } from "next"
+import Link from "next/link"
 
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import { Icons } from "@/components/Icons";
-import { UserAuthForm } from "@/components/UserAuthForm";
-import { siteConfig } from "@/config/site";
+import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/button"
+import { Icons } from "@/components/Icons"
+import { UserAuthForm } from "@/components/UserAuthForm"
 
 export const metadata: Metadata = {
   title: "Login",
   description: "Login to your account",
-};
+}
 
 export default function LoginPage() {
   return (
@@ -28,7 +28,7 @@ export default function LoginPage() {
         </>
       </Link>
 
-      <div className="text-5xl font-semibold pb-8">{siteConfig.name}</div>
+      <div className="pb-8 text-5xl font-semibold">{siteConfig.name}</div>
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="flex flex-col space-y-2 text-center">
           {/* <Icons.logo className="mx-auto h-6 w-6" /> */}
@@ -39,7 +39,7 @@ export default function LoginPage() {
             Enter your email to sign in to your account
           </p>
         </div>
-        <UserAuthForm formType={1}/>
+        <UserAuthForm formType={1} />
         <p className="px-8 text-center text-sm text-muted-foreground">
           <Link
             href="/register"
@@ -50,5 +50,5 @@ export default function LoginPage() {
         </p>
       </div>
     </div>
-  );
+  )
 }

@@ -1,9 +1,11 @@
-import { TailwindIndicator } from "@/components/TWIndicator";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
-import "@/styles/globals.css";
-import { Inter as FontSans } from "next/font/google";
+import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
+import { ThemeProvider } from "@/components/ThemeProvider"
+import { TailwindIndicator } from "@/components/TWIndicator"
+
+import "@/styles/globals.css"
+
+import { Inter as FontSans } from "next/font/google"
 import localFont from "next/font/local"
 
 const fontSans = FontSans({
@@ -43,10 +45,10 @@ export const metadata = {
   },
 
   manifest: `${siteConfig.url}/site.webmanifest`,
-};
+}
 
 interface RootLayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
@@ -66,5 +68,5 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

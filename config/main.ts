@@ -1,4 +1,4 @@
-import { MainConfig } from "@/types";
+import { MainConfig } from "@/types"
 
 export const mainConfig: MainConfig = {
   mainNav: [
@@ -7,4 +7,4 @@ export const mainConfig: MainConfig = {
       href: "/blog",
     },
   ],
-};
+}

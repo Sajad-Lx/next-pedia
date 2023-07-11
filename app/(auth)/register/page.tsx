@@ -1,16 +1,16 @@
-import { Metadata } from "next";
-import Link from "next/link";
+import { Metadata } from "next"
+import Link from "next/link"
 
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import { Icons } from "@/components/Icons";
-import { UserAuthForm } from "@/components/UserAuthForm";
-import { siteConfig } from "@/config/site";
+import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/button"
+import { Icons } from "@/components/Icons"
+import { UserAuthForm } from "@/components/UserAuthForm"
 
 export const metadata: Metadata = {
   title: "Create an account",
   description: "Create an account to get started.",
-};
+}
 
 export default function RegisterPage() {
   return (
@@ -37,7 +37,7 @@ export default function RegisterPage() {
         Login
       </Link>
 
-      <div className="text-5xl font-semibold pb-5">{siteConfig.name}</div>
+      <div className="pb-5 text-5xl font-semibold">{siteConfig.name}</div>
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="flex flex-col space-y-2 text-center">
           {/* <Icons.logo className="mx-auto h-6 w-6" /> */}
@@ -48,7 +48,7 @@ export default function RegisterPage() {
             Enter your email below to create your account
           </p>
         </div>
-        <UserAuthForm formType={2}/>
+        <UserAuthForm formType={2} />
         <p className="px-8 text-center text-sm text-muted-foreground">
           By clicking continue, you agree to our{" "}
           <Link
@@ -68,5 +68,5 @@ export default function RegisterPage() {
         </p>
       </div>
     </div>
-  );
+  )
 }

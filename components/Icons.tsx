@@ -185,4 +185,4 @@ export const Icons = {
       <path d="M20 21a8 8 0 1 0-16 0" />
     </svg>
   ),
-};
+}

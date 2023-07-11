@@ -1,15 +1,12 @@
-import React, { BlockquoteHTMLAttributes } from "react";
-import Image from "next/image";
-import { useMDXComponent } from "next-contentlayer/hooks";
+"use client"
 
-import { cn } from "@/lib/utils";
-import { Callout } from "@/components/Callout";
-import { MdxCard } from "@/components/mdxCard";
+import * as React from "react"
+import Image from "next/image"
+import { useMDXComponent } from "next-contentlayer/hooks"
 
-// type compProps = {
-//   className?: string;
-//   props?: any;
-// };
+import { cn } from "@/lib/utils"
+import { Callout } from "@/components/Callout"
+import { MdxCard } from "@/components/MdxCard"
 
 const components = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -146,7 +143,7 @@ const components = {
       {...props}
     />
   ),
-  code: ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => (
+  code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
         "relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm",
@@ -158,18 +155,18 @@ const components = {
   Image,
   Callout,
   Card: MdxCard,
-};
+}
 
 interface MdxProps {
-  code: string;
+  code: string
 }
 
 export function Mdx({ code }: MdxProps) {
-  const Component = useMDXComponent(code);
+  const Component = useMDXComponent(code)
 
   return (
     <div className="mdx">
       <Component components={components as any} />
     </div>
-  );
+  )
 }

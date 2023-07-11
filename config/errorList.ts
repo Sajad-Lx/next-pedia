@@ -1,6 +1,6 @@
 type ErrorList = {
-  [key: string]: string;
-};
+  [key: string]: string
+}
 
 const errorList: ErrorList = {
   Signin: "Try signing with a different account.",
@@ -15,8 +15,8 @@ const errorList: ErrorList = {
   CredentialsSignin:
     "Sign in failed. Check the details you provided are correct.",
   default: "Unable to sign in.",
-};
+}
 
 export function ErrorName(error: string) {
-  return errorList[error];
+  return errorList[error]
 }

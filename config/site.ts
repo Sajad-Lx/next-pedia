@@ -1,4 +1,4 @@
-import { SiteConfig } from "@/types";
+import { SiteConfig } from "@/types"
 
 export const siteConfig: SiteConfig = {
   name: "Next Pedia",
@@ -11,4 +11,4 @@ export const siteConfig: SiteConfig = {
     twitter: "#TODO",
     github: "https://github.com/Sajad-Lx",
   },
-};
+}

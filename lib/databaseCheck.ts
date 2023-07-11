@@ -1,13 +1,13 @@
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/prisma"
 
 export async function databaseConnected() {
-    try {
-        var connected = await prisma.$queryRaw`SELECT 1`;
-        if (!connected) {
-            return false;
-        }
-    } catch {
-        return false;
+  try {
+    var connected = await prisma.$queryRaw`SELECT 1`
+    if (!connected) {
+      return false
     }
-    return true;
+  } catch {
+    return false
+  }
+  return true
 }
