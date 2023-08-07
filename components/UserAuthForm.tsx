@@ -10,7 +10,7 @@ import * as z from "zod"
 import { ErrorName } from "@/config/errorList"
 import { cn } from "@/lib/utils"
 import { userAuthSchema, userSignUpSchema } from "@/lib/validations/auth"
-import { buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/material-ui/Buttons/Button"
 import { Input } from "@/components/ui/input"
 import { Icons } from "@/components/Icons"
 
@@ -233,7 +233,7 @@ export function UserAuthForm({
         {isGitHubLoading ? (
           <Icons.loading className="mr-2 h-4 w-4 animate-spin" />
         ) : (
-          <Icons.github className="mr-2 h-4 w-4" />
+          <Icons.github className="mr-2 h-4 w-4 fill-on-primary" />
         )}{" "}
         Github
       </button>

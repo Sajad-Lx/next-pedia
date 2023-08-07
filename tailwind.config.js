@@ -21,13 +21,13 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
+        background: "hsl(var(--background))", //Repeated
         foreground: "hsl(var(--foreground))",
-        primary: {
+        primary: {                            //Repeated
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
-        secondary: {
+        secondary: {                          //Repeated
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
@@ -51,7 +51,72 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
+        // Material3
+        mprimary: {
+          DEFAULT: "var(--md-primary)",
+          container: "var(--md-primary-container)",
+        },
+        msecondary: {
+          DEFAULT: "var(--md-secondary)",
+          container: "var(--md-secondary-container)",
+        },
+        tertiary: {
+          DEFAULT: "var(--md-tertiary)",
+          container: "var(--md-tertiary-container)",
+        },
+        error: {
+          DEFAULT: "var(--md-error)",
+          container: "var(--md-error-container)",
+        },
+        mbackground: "var(--md-background)",
+        surface: {
+          DEFAULT: "var(--md-surface)",
+          variant: "var(--md-surface-variant)",
+          tint: "var(--md-surface-tint)",
+        },
+
+        on: {
+          primary: {
+            DEFAULT: "var(--md-on-primary)",
+            container: "var(--md-on-primary-container)",
+          },
+          secondary: {
+            DEFAULT: "var(--md-on-secondary)",
+            container: "var(--md-on-secondary-container)",
+          },
+          tertiary: {
+            DEFAULT: "var(--md-on-tertiary)",
+            container: "var(--md-on-tertiary-container)",
+          },
+          error: {
+            DEFAULT: "var(--md-on-error)",
+            container: "var(--md-on-error-container)",
+          },
+          background: "var(--md-on-background)",
+          surface: {
+            DEFAULT: "var(--md-on-surface)",
+            variant: "var(--md-on-surface-variant)",
+          },
+        },
+
+        outline: {
+          DEFAULT: "var(--md-outline)",
+          variant: "var(--md-outline-variant)",
+        },
+        inverse: {
+          primary: "var(--md-inverse-primary)",
+          surface: "var(--md-inverse-surface)",
+          on: {
+            surface: "var(--md-inverse-on-surface)",
+          },
+        },
+        shadow: "var(--md-shadow)",
+        scrim: "var(--md-scrim)",
+        // Material3 Ends
       },
+
+
       borderRadius: {
         lg: `var(--radius)`,
         md: `calc(var(--radius) - 2px)`,

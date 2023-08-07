@@ -1,0 +1,36 @@
+@tailwind base;
+
+@layer base {
+  .dark {
+    --md-primary: var(--md-sys-color-primary-dark);
+    --md-on-primary: var(--md-sys-color-on-primary-dark);
+    --md-primary-container: var(--md-sys-color-primary-container-dark);
+    --md-on-primary-container: var(--md-sys-color-on-primary-container-dark);
+    --md-secondary: var(--md-sys-color-secondary-dark);
+    --md-on-secondary: var(--md-sys-color-on-secondary-dark);
+    --md-secondary-container: var(--md-sys-color-secondary-container-dark);
+    --md-on-secondary-container: var(--md-sys-color-on-secondary-container-dark);
+    --md-tertiary: var(--md-sys-color-tertiary-dark);
+    --md-on-tertiary: var(--md-sys-color-on-tertiary-dark);
+    --md-tertiary-container: var(--md-sys-color-tertiary-container-dark);
+    --md-on-tertiary-container: var(--md-sys-color-on-tertiary-container-dark);
+    --md-error: var(--md-sys-color-error-dark);
+    --md-error-container: var(--md-sys-color-error-container-dark);
+    --md-on-error: var(--md-sys-color-on-error-dark);
+    --md-on-error-container: var(--md-sys-color-on-error-container-dark);
+    --md-background: var(--md-sys-color-background-dark);
+    --md-on-background: var(--md-sys-color-on-background-dark);
+    --md-surface: var(--md-sys-color-surface-dark);
+    --md-on-surface: var(--md-sys-color-on-surface-dark);
+    --md-surface-variant: var(--md-sys-color-surface-variant-dark);
+    --md-on-surface-variant: var(--md-sys-color-on-surface-variant-dark);
+    --md-outline: var(--md-sys-color-outline-dark);
+    --md-inverse-on-surface: var(--md-sys-color-inverse-on-surface-dark);
+    --md-inverse-surface: var(--md-sys-color-inverse-surface-dark);
+    --md-inverse-primary: var(--md-sys-color-inverse-primary-dark);
+    --md-shadow: var(--md-sys-color-shadow-dark);
+    --md-surface-tint: var(--md-sys-color-surface-tint-dark);
+    --md-outline-variant: var(--md-sys-color-outline-variant-dark);
+    --md-scrim: var(--md-sys-color-scrim-dark);
+  }
+}

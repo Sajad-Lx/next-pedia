@@ -3,7 +3,7 @@ import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/material-ui/Buttons/Button"
 import { Icons } from "@/components/Icons"
 import { UserAuthForm } from "@/components/UserAuthForm"
 
@@ -18,8 +18,8 @@ export default function LoginPage() {
       <Link
         href="/"
         className={cn(
-          buttonVariants({ variant: "ghost" }),
-          "absolute left-4 top-4 md:left-8 md:top-8"
+          buttonVariants({ variant: "elevated" }),
+          "absolute left-4 top-4 md:left-8 md:top-8 px-5"
         )}
       >
         <>
