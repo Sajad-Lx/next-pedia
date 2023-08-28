@@ -58,8 +58,8 @@ export const authOptions: NextAuthOptions = {
 
   callbacks: {
     async session({ token, session }) {
-      if (token && session.user !== undefined) {
-        // session.user.id = token.id;
+      if (token && session?.user !== undefined) {
+        session.user.id = token.id
         session.user.name = token.name
         session.user.email = token.email
         session.user.image = token.picture
@@ -79,6 +79,7 @@ export const authOptions: NextAuthOptions = {
         if (user) {
           token.id = user?.id
         }
+
         return token
       }
 

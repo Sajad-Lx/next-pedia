@@ -23,7 +23,7 @@ export function MainNav({ items, children }: MainNavProps) {
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
 
   return (
-    <div className="relative mx-8 flex items-center py-4 w-full sm:mx-0">
+    <div className="relative flex items-center py-4 w-full">
       {/* For Mobile */}
       <button
         className="flex items-center space-x-2 md:hidden"

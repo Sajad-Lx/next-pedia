@@ -23,7 +23,7 @@ export default async function DashboardLayout({
   return (
     <div className="flex min-h-screen flex-col space-y-6">
       <header className="supports-backdrop-blur:bg-white/60 sticky top-0 z-40 w-full flex-none bg-white/95 backdrop-blur transition-colors duration-500 dark:border-slate-50/[0.06] dark:bg-transparent lg:z-50 lg:border-b lg:border-slate-900/10">
-        <div className="container flex h-16 items-center py-4">
+        <div className="container flex h-16 items-center py-4 space-x-4">
           <MainNav items={dashboardConfig.mainNav} />
           <UserAccountNav
             user={{
