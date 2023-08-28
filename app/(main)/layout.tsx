@@ -16,9 +16,12 @@ export default async function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-40 w-full flex-none bg-white/60 backdrop-blur transition-colors duration-500 dark:bg-transparent lg:z-50 lg:border-b lg:border-slate-900/10">
-        <div className="container flex h-16 items-center py-4 space-x-4">
+        <div className="container flex h-16 items-center space-x-4 py-4">
           <MainNav items={mainConfig.mainNav} />
-          <Link className={cn(buttonVariants({variant: "tonal"}))} href={"/login"}>
+          <Link
+            className={cn(buttonVariants({ variant: "tonal" }))}
+            href={"/login"}
+          >
             {"Login"}
           </Link>
         </div>

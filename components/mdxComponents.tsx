@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Image from "next/image"
-import { useMDXComponent } from "next-contentlayer/hooks"
+import * as React from "react";
+import Image from "next/image";
+import { useMDXComponent } from "next-contentlayer/hooks";
 
-import { cn } from "@/lib/utils"
-import { Callout } from "@/components/Callout"
-import { MdxCard } from "@/components/mdxCard"
+import { cn } from "@/lib/utils";
+import { Callout } from "@/components/Callout";
+import { MdxCard } from "@/components/mdxCard";
 
 const components = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -65,7 +65,10 @@ const components = {
   ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
-      className={cn("font-medium underline underline-offset-4 hover:bg-mprimary-container", className)}
+      className={cn(
+        "font-medium underline underline-offset-4 hover:bg-mprimary-container",
+        className
+      )}
       {...props}
     />
   ),
@@ -112,14 +115,17 @@ const components = {
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr
-      className={cn("m-0 border-t border-tertiary p-0 even:bg-mprimary-container", className)}
+      className={cn(
+        "m-0 border-t border-tertiary p-0 even:bg-mprimary-container",
+        className
+      )}
       {...props}
     />
   ),
   th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <th
       className={cn(
-        "border-2 border-tertiary bg-tertiary text-on-tertiary px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
+        "border-2 border-tertiary bg-tertiary px-4 py-2 text-left font-bold text-on-tertiary [&[align=center]]:text-center [&[align=right]]:text-right",
         className
       )}
       {...props}
@@ -155,18 +161,18 @@ const components = {
   Image,
   Callout,
   Card: MdxCard,
-}
+};
 
 interface MdxProps {
-  code: string
+  code: string;
 }
 
 export function Mdx({ code }: MdxProps) {
-  const Component = useMDXComponent(code)
+  const Component = useMDXComponent(code);
 
   return (
     <div className="mdx">
       <Component components={components as any} />
     </div>
-  )
+  );
 }

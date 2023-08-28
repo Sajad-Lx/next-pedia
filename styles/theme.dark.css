@@ -9,7 +9,9 @@
     --md-secondary: var(--md-sys-color-secondary-dark);
     --md-on-secondary: var(--md-sys-color-on-secondary-dark);
     --md-secondary-container: var(--md-sys-color-secondary-container-dark);
-    --md-on-secondary-container: var(--md-sys-color-on-secondary-container-dark);
+    --md-on-secondary-container: var(
+      --md-sys-color-on-secondary-container-dark
+    );
     --md-tertiary: var(--md-sys-color-tertiary-dark);
     --md-on-tertiary: var(--md-sys-color-on-tertiary-dark);
     --md-tertiary-container: var(--md-sys-color-tertiary-container-dark);

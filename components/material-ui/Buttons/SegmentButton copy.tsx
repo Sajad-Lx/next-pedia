@@ -1,7 +1,7 @@
-import React from "react"
-import { cva, VariantProps } from "class-variance-authority"
+import React from "react";
+import { cva, VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   "transition duration-200 inline-flex items-center justify-center text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:drop-shadow-none disabled:opacity-60 disabled:pointer-events-none ring-offset-background hover:drop-shadow-[0_2px_2px_rgba(0,0,0,0.4)] active:shadow-[inset_0_-2px_4px_rgba(0,0,0,0.6)]",
@@ -26,17 +26,17 @@ const buttonVariants = cva(
       size: "default",
     },
   }
-)
+);
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  items: string[]
+  items: string[];
 }
 
 const SegmentButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, items, ...props }, ref) => {
-    const { firstItem, middleItems, lastItem } = getSplitValues(items)
+    const { firstItem, middleItems, lastItem } = getSplitValues(items);
 
     return (
       <div>
@@ -78,23 +78,23 @@ const SegmentButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </button>
         )}
       </div>
-    )
+    );
   }
-)
-SegmentButton.displayName = "Button"
+);
+SegmentButton.displayName = "Button";
 
-export { SegmentButton, buttonVariants }
+export { SegmentButton, buttonVariants };
 
 function getSplitValues(items: string[]) {
-  const firstItem: String = items[0]
-  let lastItem: String = ""
-  let middleItems: String[] = []
+  const firstItem: String = items[0];
+  let lastItem: String = "";
+  let middleItems: String[] = [];
   if (items.length > 1) {
-    lastItem = items[items.length - 1]
+    lastItem = items[items.length - 1];
     for (let i = 1; i < items.length - 1; i++) {
-      middleItems.push(items[i])
+      middleItems.push(items[i]);
     }
   }
 
-  return { firstItem, middleItems, lastItem }
+  return { firstItem, middleItems, lastItem };
 }

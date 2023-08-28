@@ -1,5 +1,5 @@
 interface AttentionProps {
-  text: string
+  text: string;
 }
 
 export default function Attention({ text }: AttentionProps) {
@@ -7,5 +7,5 @@ export default function Attention({ text }: AttentionProps) {
     <div className="w-full bg-orange-500 py-1 text-center text-foreground">
       {text}
     </div>
-  )
+  );
 }

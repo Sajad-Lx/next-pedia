@@ -151,7 +151,7 @@ export function Editor({ post }: EditorProps) {
 
   return (
     <>
-      <div className="fixed bottom-1 right-1 z-50 flex items-center justify-center rounded-full bg-tertiary-container font-mono p-1 text-sm text-on-tertiary-container">
+      <div className="fixed bottom-1 right-1 z-50 flex items-center justify-center rounded-full bg-tertiary-container p-1 font-mono text-sm text-on-tertiary-container">
         <div className="block">
           {post.published ? "(Published)" : "(Draft)"}
         </div>
@@ -184,7 +184,7 @@ export function Editor({ post }: EditorProps) {
               id="title"
               defaultValue={post.title}
               placeholder="Post title"
-              className="w-full resize-none appearance-none overflow-hidden bg-transparent text-5xl font-bold border-b focus:outline-none"
+              className="w-full resize-none appearance-none overflow-hidden border-b bg-transparent text-5xl font-bold focus:outline-none"
               {...register("title")}
             />
 

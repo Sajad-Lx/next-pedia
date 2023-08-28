@@ -1,7 +1,7 @@
-import Link from "next/link"
+import Link from "next/link";
 
-import { buttonVariants } from "@/components/material-ui/Buttons/Button"
-import { EmptyPlaceholder } from "@/components/EmptyPlaceholder"
+import { EmptyPlaceholder } from "@/components/EmptyPlaceholder";
+import { buttonVariants } from "@/components/material-ui/Buttons/Button";
 
 export default function NotFound() {
   return (
@@ -11,9 +11,12 @@ export default function NotFound() {
       <EmptyPlaceholder.Description>
         This post cound not be found. Please try again.
       </EmptyPlaceholder.Description>
-      <Link href="/dashboard" className={buttonVariants({ variant: "elevated" })}>
+      <Link
+        href="/dashboard"
+        className={buttonVariants({ variant: "elevated" })}
+      >
         Go to Dashboard
       </Link>
     </EmptyPlaceholder>
-  )
+  );
 }

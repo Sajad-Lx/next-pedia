@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { useRouter } from "next/navigation"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { User } from "@prisma/client"
-import { useForm } from "react-hook-form"
-import { Toaster } from "react-hot-toast"
-import * as z from "zod"
+import * as React from "react";
+import { useRouter } from "next/navigation";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { User } from "@prisma/client";
+import { useForm } from "react-hook-form";
+import { Toaster } from "react-hot-toast";
+import * as z from "zod";
 
-import { cn } from "@/lib/utils"
-import { userUpdateSchema } from "@/lib/validations/user"
-import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { userUpdateSchema } from "@/lib/validations/user";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -18,19 +18,19 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/Card"
-import CustomToast from "@/components/ui/custom-toast"
-import { Input } from "@/components/ui/input"
-import { Icons } from "@/components/Icons"
+} from "@/components/ui/Card";
+import CustomToast from "@/components/ui/custom-toast";
+import { Input } from "@/components/ui/input";
+import { Icons } from "@/components/Icons";
 
 interface UserNameFormProps extends React.HTMLAttributes<HTMLFormElement> {
-  user: Pick<User, "id" | "name" | "email">
+  user: Pick<User, "id" | "name" | "email">;
 }
 
-type FormData = z.infer<typeof userUpdateSchema>
+type FormData = z.infer<typeof userUpdateSchema>;
 
 export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
-  const router = useRouter()
+  const router = useRouter();
   const {
     handleSubmit,
     register,
@@ -41,11 +41,11 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
       name: user?.name || "",
       email: user?.email || "",
     },
-  })
-  const [isSaving, setIsSaving] = React.useState<boolean>(false)
+  });
+  const [isSaving, setIsSaving] = React.useState<boolean>(false);
 
   async function onSubmit(data: FormData) {
-    setIsSaving(true)
+    setIsSaving(true);
 
     const response = await fetch(`/api/users/${user.id}`, {
       method: "PATCH",
@@ -55,23 +55,23 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
       body: JSON.stringify({
         name: data.name,
       }),
-    })
+    });
 
-    setIsSaving(false)
+    setIsSaving(false);
 
     if (!response?.ok) {
       return CustomToast({
         title: "Something went wrong.",
         description: "Your name was not updated. Please try again.",
-      })
+      });
     }
 
     CustomToast({
       title: "Update",
       description: "Your name has been updated.",
-    })
+    });
 
-    router.refresh()
+    router.refresh();
   }
 
   return (
@@ -145,5 +145,5 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
 
       <Toaster />
     </form>
-  )
+  );
 }

@@ -1,6 +1,6 @@
-import { CardSkeleton } from "@/components/CardSkeleton"
-import { DashboardHeader } from "@/components/Header"
-import { DashboardShell } from "@/components/Shell"
+import { CardSkeleton } from "@/components/CardSkeleton";
+import { DashboardHeader } from "@/components/Header";
+import { DashboardShell } from "@/components/Shell";
 
 export default function DashboardSettingsLoading() {
   return (
@@ -13,5 +13,5 @@ export default function DashboardSettingsLoading() {
         <CardSkeleton />
       </div>
     </DashboardShell>
-  )
+  );
 }

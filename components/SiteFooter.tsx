@@ -1,6 +1,6 @@
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/Icons"
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import { Icons } from "@/components/Icons";
 
 export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
@@ -35,5 +35,5 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
         </div>
       </div>
     </footer>
-  )
+  );
 }

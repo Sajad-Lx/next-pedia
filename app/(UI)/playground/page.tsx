@@ -1,28 +1,28 @@
-import { Metadata } from "next"
+import { Metadata } from "next";
 
-import { Icons } from "@/components/Icons"
-import { Button } from "@/components/material-ui/Buttons/Button"
-import { FAB } from "@/components/material-ui/Buttons/FAB"
-import { IconButton } from "@/components/material-ui/Buttons/IconButton"
+import { Icons } from "@/components/Icons";
+import { Button } from "@/components/material-ui/Buttons/Button";
+import { FAB } from "@/components/material-ui/Buttons/FAB";
+import { IconButton } from "@/components/material-ui/Buttons/IconButton";
 import {
   FirstSegmentButton,
   LastSegmentButton,
   SegmentButtonGroup,
   SegmentButtons,
-} from "@/components/material-ui/Buttons/SegmentButton"
+} from "@/components/material-ui/Buttons/SegmentButton";
 
 export const metadata: Metadata = {
   title: "UI Playground",
   description: "Testing ground for UI",
-}
+};
 
 export default function UIPlayground() {
   return (
     <div>
-      <h1 className="text-5xl m-4 border-b">UI Playground</h1>
+      <h1 className="m-4 border-b text-5xl">UI Playground</h1>
 
       <div className="container">
-        <h2 className="text-2xl mb-2">Buttons</h2>
+        <h2 className="mb-2 text-2xl">Buttons</h2>
         <div className="grid grid-flow-row-dense grid-cols-3 gap-2">
           <Button>👋🏻 Default</Button>
           <Button variant={"outlined"}>Outlined</Button>
@@ -51,7 +51,7 @@ export default function UIPlayground() {
         </div>
 
         <br />
-        <h2 className="text-2xl mb-2">FAB</h2>
+        <h2 className="mb-2 text-2xl">FAB</h2>
         <div className="space-x-4 space-y-4">
           <FAB>
             <Icons.plus />
@@ -81,7 +81,7 @@ export default function UIPlayground() {
         </div>
         <br />
 
-        <h2 className="text-2xl mb-2">Icon Button</h2>
+        <h2 className="mb-2 text-2xl">Icon Button</h2>
         <div className="space-x-4 space-y-4">
           <IconButton variant={"filled"}>
             <Icons.moon />
@@ -137,8 +137,8 @@ export default function UIPlayground() {
         </div>
 
         <br />
-        <h2 className="text-2xl mb-2">Segment Buttons</h2>
-        <div className="pb-10 space-x-4 space-y-4">
+        <h2 className="mb-2 text-2xl">Segment Buttons</h2>
+        <div className="space-x-4 space-y-4 pb-10">
           <SegmentButtonGroup>
             <FirstSegmentButton variant={"elevated"}>
               Button 1
@@ -160,5 +160,5 @@ export default function UIPlayground() {
         </div>
       </div>
     </div>
-  )
+  );
 }

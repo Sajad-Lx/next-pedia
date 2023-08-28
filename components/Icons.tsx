@@ -260,4 +260,4 @@ export const Icons = {
       <path d="M12 17h.01" />
     </svg>
   ),
-}
+};

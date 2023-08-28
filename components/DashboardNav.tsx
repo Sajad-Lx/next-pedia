@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { SidebarNavItem } from "types"
-import { cn } from "@/lib/utils"
+import { SidebarNavItem } from "types";
+import { cn } from "@/lib/utils";
 
-import { buttonVariants } from "./material-ui/Buttons/Button"
+import { buttonVariants } from "./material-ui/Buttons/Button";
 
 interface DashboardNavProps {
-  items: SidebarNavItem[]
+  items: SidebarNavItem[];
 }
 
 export function DashboardNav({ items }: DashboardNavProps) {
-  const path = usePathname()
+  const path = usePathname();
 
   if (!items?.length) {
-    return null
+    return null;
   }
 
   return (
@@ -29,7 +29,9 @@ export function DashboardNav({ items }: DashboardNavProps) {
                 className={cn(
                   buttonVariants({ variant: "elevated", alignText: "left" }),
                   "group flex",
-                  path === item.href ? "text-on-secondary-container bg-msecondary-container" : "",
+                  path === item.href
+                    ? "bg-msecondary-container text-on-secondary-container"
+                    : "",
                   item.disabled && "cursor-not-allowed opacity-80"
                 )}
               >
@@ -37,8 +39,8 @@ export function DashboardNav({ items }: DashboardNavProps) {
               </span>
             </Link>
           )
-        )
+        );
       })}
     </nav>
-  )
+  );
 }

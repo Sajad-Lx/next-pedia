@@ -1,30 +1,30 @@
-import * as crypto from "crypto"
+import * as crypto from "crypto";
 
 type props = {
-  password: string
-  oldPassword?: string
-  salt: string
-}
+  password: string;
+  oldPassword?: string;
+  salt: string;
+};
 
 export async function hashPassword({ password, salt }: props) {
   return new Promise<string>((resolve, reject) => {
     crypto.pbkdf2(password, salt, 1000, 64, "sha512", (err, derivedKey) => {
-      if (err) return reject(err)
-      return resolve(derivedKey.toString("hex"))
-    })
-  })
+      if (err) return reject(err);
+      return resolve(derivedKey.toString("hex"));
+    });
+  });
 }
 
 export async function verifyPassword({ password, oldPassword, salt }: props) {
-  let match = false
+  let match = false;
   await hashPassword({ password, salt })
     .then((value) => {
       if (value === oldPassword) {
-        match = true
+        match = true;
       }
     })
-    .catch((err) => console.log(err))
-  return match
+    .catch((err) => console.log(err));
+  return match;
 }
 
 // For Testing

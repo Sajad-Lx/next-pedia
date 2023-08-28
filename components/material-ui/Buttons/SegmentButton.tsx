@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import React from "react"
-import { cva, VariantProps } from "class-variance-authority"
+import React from "react";
+import { cva, VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   "transition duration-200 inline-flex items-center justify-center text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 disabled:drop-shadow-none disabled:opacity-60 disabled:pointer-events-none ring-offset-background active:shadow-[inset_0_-2px_4px_rgba(0,0,0,0.6)] hover:drop-shadow-[0_2px_2px_rgba(0,0,0,0.4)]",
@@ -28,17 +28,17 @@ const buttonVariants = cva(
       size: "default",
     },
   }
-)
+);
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  active?: boolean
+  active?: boolean;
 }
 
 const FirstSegmentButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => {
-    const { active, onClick } = props
+    const { active, onClick } = props;
 
     return (
       <button
@@ -51,12 +51,14 @@ const FirstSegmentButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         onClick={onClick}
         {...props}
       />
-    )
+    );
   }
-)
+);
+FirstSegmentButton.displayName = "FirstSegmentButton";
+
 const LastSegmentButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => {
-    const { active, onClick } = props
+    const { active, onClick } = props;
 
     return (
       <button
@@ -68,12 +70,14 @@ const LastSegmentButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         {...props}
       />
-    )
+    );
   }
-)
+);
+LastSegmentButton.displayName = "LastSegmentButton";
+
 const SegmentButtons = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => {
-    const { active, onClick } = props
+    const { active, onClick } = props;
 
     return (
       <button
@@ -84,9 +88,10 @@ const SegmentButtons = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         {...props}
       />
-    )
+    );
   }
-)
+);
+SegmentButtons.displayName = "SegmentButtons";
 
 export interface SegmentButtonGroupProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -94,7 +99,7 @@ export interface SegmentButtonGroupProps
 
 type ClonedButtonElement = React.ReactElement<
   ButtonProps & { children?: React.ReactNode }
->
+>;
 
 const SegmentButtonGroup = React.forwardRef<
   HTMLDivElement,
@@ -104,23 +109,23 @@ const SegmentButtonGroup = React.forwardRef<
 
   const handleButtonClick = (index: number) => {
     // setActiveButton(index)
-    console.log(index)
-  }
+    console.log(index);
+  };
 
-  const { children } = props
+  const { children } = props;
 
   const modifiedChildren = React.Children.map(children, (child, index) => {
     if (React.isValidElement(child)) {
-      const clonedChild = child as ClonedButtonElement
+      const clonedChild = child as ClonedButtonElement;
       return React.cloneElement(clonedChild, {
         // active: index === activeButton,
         onClick: () => handleButtonClick(index),
-      })
+      });
     }
-    return child
-  })
+    return child;
+  });
 
-  const { firstItem, middleItems, lastItem } = getSplitValues(modifiedChildren)
+  const { firstItem, middleItems, lastItem } = getSplitValues(modifiedChildren);
 
   return (
     <div className={className} ref={ref} {...props}>
@@ -128,22 +133,22 @@ const SegmentButtonGroup = React.forwardRef<
       {middleItems}
       {lastItem}
     </div>
-  )
-})
-SegmentButtonGroup.displayName = "SegmentButton"
+  );
+});
+SegmentButtonGroup.displayName = "SegmentButton";
 
 function getSplitValues(items: any) {
-  const firstItem = items.at(0)
-  let lastItem = null
-  let middleItems = []
+  const firstItem = items.at(0);
+  let lastItem = null;
+  let middleItems = [];
   if (items.length > 1) {
-    lastItem = items[items.length - 1]
+    lastItem = items[items.length - 1];
     for (let i = 1; i < items.length - 1; i++) {
-      middleItems.push(items[i])
+      middleItems.push(items[i]);
     }
   }
 
-  return { firstItem, middleItems, lastItem }
+  return { firstItem, middleItems, lastItem };
 }
 
 // {firstItem && <FirstButton key={0}>{firstItem}</FirstButton>}
@@ -159,4 +164,4 @@ export {
   LastSegmentButton,
   SegmentButtons,
   buttonVariants,
-}
+};

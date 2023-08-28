@@ -1,23 +1,23 @@
-import { redirect } from "next/navigation"
+import { redirect } from "next/navigation";
 
-import { authOptions } from "@/lib/auth"
-import { prisma as db } from "@/lib/prisma"
-import { getCurrentUser } from "@/lib/session"
-import { EmptyPlaceholder } from "@/components/EmptyPlaceholder"
-import { DashboardHeader } from "@/components/Header"
-import { PostCreateButton } from "@/components/PostCreateButton"
-import { PostItem } from "@/components/PostItem"
-import { DashboardShell } from "@/components/Shell"
+import { authOptions } from "@/lib/auth";
+import { prisma as db } from "@/lib/prisma";
+import { getCurrentUser } from "@/lib/session";
+import { EmptyPlaceholder } from "@/components/EmptyPlaceholder";
+import { DashboardHeader } from "@/components/Header";
+import { PostCreateButton } from "@/components/PostCreateButton";
+import { PostItem } from "@/components/PostItem";
+import { DashboardShell } from "@/components/Shell";
 
 export const metadata = {
   title: "Dashboard",
-}
+};
 
 export default async function DashboardPage() {
-  const user = await getCurrentUser()
+  const user = await getCurrentUser();
 
   if (!user) {
-    redirect(authOptions?.pages?.signIn || "/login")
+    redirect(authOptions?.pages?.signIn || "/login");
   }
 
   const posts = await db.post.findMany({
@@ -33,7 +33,7 @@ export default async function DashboardPage() {
     orderBy: {
       updatedAt: "desc",
     },
-  })
+  });
 
   return (
     <DashboardShell>
@@ -59,5 +59,5 @@ export default async function DashboardPage() {
         )}
       </div>
     </DashboardShell>
-  )
+  );
 }

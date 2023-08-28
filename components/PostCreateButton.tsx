@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { useRouter } from "next/navigation"
-import { Toaster } from "react-hot-toast"
+import * as React from "react";
+import { useRouter } from "next/navigation";
+import { Toaster } from "react-hot-toast";
 
-import { cn } from "@/lib/utils"
-import CustomToast from "@/components/ui/custom-toast"
-import { Icons } from "@/components/Icons"
+import { cn } from "@/lib/utils";
+import CustomToast from "@/components/ui/custom-toast";
+import { Icons } from "@/components/Icons";
 import {
   ButtonProps,
   buttonVariants,
-} from "@/components/material-ui/Buttons/FAB"
+} from "@/components/material-ui/Buttons/FAB";
 
 interface PostCreateButtonProps extends ButtonProps {}
 
@@ -20,11 +20,11 @@ export function PostCreateButton({
   size,
   ...props
 }: PostCreateButtonProps) {
-  const router = useRouter()
-  const [isLoading, setIsLoading] = React.useState<boolean>(false)
+  const router = useRouter();
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   async function onClick() {
-    setIsLoading(true)
+    setIsLoading(true);
 
     const response = await fetch("/api/posts", {
       method: "POST",
@@ -34,30 +34,30 @@ export function PostCreateButton({
       body: JSON.stringify({
         title: "Untitled Post",
       }),
-    })
+    });
 
-    setIsLoading(false)
+    setIsLoading(false);
 
     if (!response?.ok) {
       if (response.status === 402) {
         return CustomToast({
           title: "Limit of 3 posts reached.",
           description: "Please upgrade to the PRO plan.",
-        })
+        });
       }
 
       return CustomToast({
         title: "Something went wrong.",
         description: "Your post was not created. Please try again.",
-      })
+      });
     }
 
-    const post = await response.json()
+    const post = await response.json();
 
     // This forces a cache invalidation.
-    router.refresh()
+    router.refresh();
 
-    router.push(`/editor/${post.id}`)
+    router.push(`/editor/${post.id}`);
   }
 
   return (
@@ -83,5 +83,5 @@ export function PostCreateButton({
       </button>
       <Toaster />
     </>
-  )
+  );
 }

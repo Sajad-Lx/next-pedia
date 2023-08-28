@@ -1,5 +1,10 @@
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/Card"
-import { Skeleton } from "@/components/ui/Skeleton"
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/Card";
+import { Skeleton } from "@/components/ui/Skeleton";
 
 export function CardSkeleton() {
   return (
@@ -13,5 +18,5 @@ export function CardSkeleton() {
         <Skeleton className="h-8 w-[120px]" />
       </CardFooter>
     </Card>
-  )
+  );
 }
