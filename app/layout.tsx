@@ -1,23 +1,23 @@
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
-import { ThemeProvider } from "@/components/ThemeProvider"
-import { TailwindIndicator } from "@/components/TWIndicator"
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { TailwindIndicator } from "@/components/TWIndicator";
 
-import "@/styles/globals.css"
+import "@/styles/globals.css";
 
-import { Inter as FontSans } from "next/font/google"
-import localFont from "next/font/local"
+import { Inter as FontSans } from "next/font/google";
+import localFont from "next/font/local";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
-})
+});
 
 // Font files can be colocated inside of `pages`
 const fontHeading = localFont({
   src: "../assets/fonts/CalSans-SemiBold.woff2",
   variable: "--font-heading",
-})
+});
 
 export const metadata = {
   title: {
@@ -45,10 +45,10 @@ export const metadata = {
   },
 
   manifest: `${siteConfig.url}/site.webmanifest`,
-}
+};
 
 interface RootLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
@@ -68,5 +68,5 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

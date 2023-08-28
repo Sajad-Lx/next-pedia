@@ -1,51 +1,51 @@
-import { notFound } from "next/navigation"
-import { allAuthors, allPosts } from "contentlayer/generated"
+import { notFound } from "next/navigation";
+import { allAuthors, allPosts } from "contentlayer/generated";
 
-import { Mdx } from "@/components/MdxComponents"
+import { Mdx } from "@/components/mdxComponents";
 
-import "@/styles/mdx.css"
+import "@/styles/mdx.css";
 
-import { Metadata } from "next"
-import Image from "next/image"
-import Link from "next/link"
+import { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
 // import { env } from "@/env.mjs"
-import { absoluteUrl, cn, formatDate } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
-import { Icons } from "@/components/Icons"
+import { absoluteUrl, cn, formatDate } from "@/lib/utils";
+import { Icons } from "@/components/Icons";
+import { buttonVariants } from "@/components/material-ui/Buttons/Button";
 
 interface PostPageProps {
   params: {
-    slug: string[]
-  }
+    slug: string[];
+  };
 }
 
 async function getPostFromParams(params: any) {
-  const slug = params?.slug?.join("/")
-  const post = allPosts.find((post) => post.slugAsParams === slug)
+  const slug = params?.slug?.join("/");
+  const post = allPosts.find((post) => post.slugAsParams === slug);
 
   if (!post) {
-    null
+    null;
   }
 
-  return post
+  return post;
 }
 
 export async function generateMetadata({
   params,
 }: PostPageProps): Promise<Metadata> {
-  const post = await getPostFromParams({ params })
+  const post = await getPostFromParams({ params });
 
   if (!post) {
-    return {}
+    return {};
   }
 
-  const url = process.env.NEXT_PUBLIC_APP_URL
+  const url = process.env.NEXT_PUBLIC_APP_URL;
 
-  const ogUrl = new URL(`${url}/api/og`)
-  ogUrl.searchParams.set("heading", post.title)
-  ogUrl.searchParams.set("type", "Blog Post")
-  ogUrl.searchParams.set("mode", "dark")
+  const ogUrl = new URL(`${url}/api/og`);
+  ogUrl.searchParams.set("heading", post.title);
+  ogUrl.searchParams.set("type", "Blog Post");
+  ogUrl.searchParams.set("mode", "dark");
 
   return {
     title: post.title,
@@ -73,7 +73,7 @@ export async function generateMetadata({
       description: post.description,
       images: [ogUrl.toString()],
     },
-  }
+  };
 }
 
 export async function generateStaticParams(): Promise<
@@ -81,26 +81,26 @@ export async function generateStaticParams(): Promise<
 > {
   return allPosts.map((post) => ({
     slug: post.slugAsParams.split("/"),
-  }))
+  }));
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const post = await getPostFromParams(params)
+  const post = await getPostFromParams(params);
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
   const authors = post.authors.map((author) =>
     allAuthors.find(({ slug }) => slug === `/authors/${author}`)
-  )
+  );
 
   return (
     <article className="container relative max-w-3xl py-6 lg:py-10">
       <Link
         href="/blog"
         className={cn(
-          buttonVariants({ variant: "ghost" }),
+          buttonVariants({ variant: "elevated" }),
           "absolute left-[-200px] top-14 hidden xl:inline-flex"
         )}
       >
@@ -157,11 +157,14 @@ export default async function PostPage({ params }: PostPageProps) {
       <Mdx code={post.body.code} />
       <hr className="mt-12" />
       <div className="flex justify-center py-6 lg:py-10">
-        <Link href="/blog" className={cn(buttonVariants({ variant: "ghost" }))}>
+        <Link
+          href="/blog"
+          className={cn(buttonVariants({ variant: "elevated" }))}
+        >
           <Icons.chevronLeft className="mr-2 h-4 w-4" />
           See all posts
         </Link>
       </div>
     </article>
-  )
+  );
 }

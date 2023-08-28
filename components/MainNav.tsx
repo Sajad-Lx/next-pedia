@@ -1,27 +1,29 @@
-"use client"
+"use client";
 
-import React from "react"
-import Link from "next/link"
-import { useSelectedLayoutSegment } from "next/navigation"
-import { MainNavItem } from "@/types"
+import React from "react";
+import Link from "next/link";
+import { useSelectedLayoutSegment } from "next/navigation";
+import { MainNavItem } from "@/types";
 
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/Icons"
-import { MobileNav } from "@/components/MobileNav"
-import { ModeToggle } from "@/components/ModeToggle"
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import { Icons } from "@/components/Icons";
+import { MobileNav } from "@/components/MobileNav";
+import { ModeToggle } from "@/components/ModeToggle";
+
+import { buttonVariants } from "./material-ui/Buttons/Button";
 
 interface MainNavProps {
-  items?: MainNavItem[]
-  children?: React.ReactNode
+  items?: MainNavItem[];
+  children?: React.ReactNode;
 }
 
 export function MainNav({ items, children }: MainNavProps) {
-  const segment = useSelectedLayoutSegment()
-  const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
+  const segment = useSelectedLayoutSegment();
+  const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
 
   return (
-    <div className="relative mx-8 flex items-center py-4 w-full xl:mx-0 xl:mr-5">
+    <div className="relative flex w-full items-center py-4">
       {/* For Mobile */}
       <button
         className="flex items-center space-x-2 md:hidden"
@@ -38,21 +40,23 @@ export function MainNav({ items, children }: MainNavProps) {
 
       {/* For Desktop */}
       <div className="flex w-full flex-row justify-between">
-        <Link href="/" className="ml-7 items-center space-x-2 md:mr-10">
+        <Link
+          href="/"
+          className="ml-7 inline-flex items-center space-x-2 md:mr-10"
+        >
           {/* <Icons.logo /> */}
           <span className="text-2xl font-bold">{siteConfig.name}</span>
         </Link>
         {items?.length ? (
-          <nav className="relative ml-auto mr-3 hidden items-center gap-6 md:flex">
+          <nav className="relative ml-auto mr-3 hidden items-center md:flex">
             {items?.map((item, index) => (
               <Link
                 key={index}
                 href={item.disabled ? "#" : item.href}
                 className={cn(
-                  "flex items-center rounded-full px-4 text-lg font-medium transition-colors hover:ring-2",
                   item.href.startsWith(`/${segment}`)
-                    ? "bg-foreground text-background"
-                    : "text-foreground/60",
+                    ? buttonVariants({ variant: "filled" })
+                    : buttonVariants({ variant: "text" }),
                   item.disabled && "cursor-not-allowed opacity-80"
                 )}
               >
@@ -64,5 +68,5 @@ export function MainNav({ items, children }: MainNavProps) {
         <ModeToggle />
       </div>
     </div>
-  )
+  );
 }

@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { User } from "next-auth"
-import { signOut } from "next-auth/react"
+import Link from "next/link";
+import { User } from "next-auth";
+import { signOut } from "next-auth/react";
 
 import {
   DropdownMenu,
@@ -10,11 +10,11 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { UserAvatar } from "@/components/UserAvatar"
+} from "@/components/ui/dropdown-menu";
+import { UserAvatar } from "@/components/UserAvatar";
 
 interface UserAccountNavProps extends React.HTMLAttributes<HTMLDivElement> {
-  user: Pick<User, "name" | "image" | "email">
+  user: Pick<User, "name" | "image" | "email">;
 }
 
 export function UserAccountNav({ user }: UserAccountNavProps) {
@@ -23,7 +23,7 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
       <DropdownMenuTrigger>
         <UserAvatar
           user={{ name: user.name || null, image: user.image || null }}
-          className="h-8 w-8"
+          className="h-10 w-10 bg-on-tertiary-container"
         />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -31,7 +31,7 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
           <div className="flex flex-col space-y-1 leading-none">
             {user.name && <p className="font-medium">{user.name}</p>}
             {user.email && (
-              <p className="w-[200px] truncate text-sm text-muted-foreground">
+              <p className="w-[200px] truncate text-sm text-on-secondary-container">
                 {user.email}
               </p>
             )}
@@ -48,15 +48,15 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
         <DropdownMenuItem
           className="cursor-pointer"
           onSelect={(event) => {
-            event.preventDefault()
+            event.preventDefault();
             signOut({
               callbackUrl: `${window.location.origin}/login`,
-            })
+            });
           }}
         >
           Sign out
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }

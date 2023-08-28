@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { useSelectedLayoutSegment } from "next/navigation"
-import { MainNavItem } from "@/types"
+import Link from "next/link";
+import { useSelectedLayoutSegment } from "next/navigation";
+import { MainNavItem } from "@/types";
 
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
-import { useLockBody } from "@/hooks/useLockBody"
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import { useLockBody } from "@/hooks/useLockBody";
 
 interface MobileNavProps {
-  items: MainNavItem[]
-  children?: React.ReactNode
+  items: MainNavItem[];
+  children?: React.ReactNode;
 }
 
 export function MobileNav({ items, children }: MobileNavProps) {
-  const segment = useSelectedLayoutSegment()
-  useLockBody()
+  const segment = useSelectedLayoutSegment();
+  useLockBody();
 
   return (
     <div
@@ -42,17 +42,17 @@ export function MobileNav({ items, children }: MobileNavProps) {
         {children}
       </div>
     </div>
-  )
+  );
 }
 
 export function SideNav({ items, children }: MobileNavProps) {
-  const segment = useSelectedLayoutSegment()
-  useLockBody()
+  const segment = useSelectedLayoutSegment();
+  useLockBody();
 
   return (
     <div
       className={cn(
-        "fixed left-0 top-16 z-10 flex h-full w-2/3 transform flex-col justify-between overflow-y-hidden bg-teal-300/10 shadow-lg backdrop-blur-xl duration-300 ease-in-out md:hidden"
+        "fixed left-0 top-16 z-10 flex h-full w-2/3 flex-col justify-between overflow-y-hidden bg-teal-300/10 shadow-lg backdrop-blur-xl duration-300 ease-in-out md:hidden"
       )}
     >
       <nav className="inset-0 mt-10 flex flex-col items-center space-y-8 font-medium">
@@ -77,5 +77,5 @@ export function SideNav({ items, children }: MobileNavProps) {
           </div>
         </div> */}
     </div>
-  )
+  );
 }

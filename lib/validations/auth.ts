@@ -1,4 +1,4 @@
-import * as z from "zod"
+import * as z from "zod";
 
 export const userAuthSchema = z.object({
   email: z.string().email("Invalid email").min(1, "Email is required"),
@@ -6,7 +6,7 @@ export const userAuthSchema = z.object({
     .string()
     .min(1, "Password is required")
     .min(8, "Password must have more than 8 characters"),
-})
+});
 
 export const userSignUpSchema = z
   .object({
@@ -21,4 +21,4 @@ export const userSignUpSchema = z
   .refine((data) => data.password === data.confirmPassword, {
     path: ["confirmPassword"],
     message: "Password don't match",
-  })
+  });

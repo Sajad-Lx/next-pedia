@@ -1,16 +1,16 @@
-import { Metadata } from "next"
-import Link from "next/link"
+import { Metadata } from "next";
+import Link from "next/link";
 
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
-import { Icons } from "@/components/Icons"
-import { UserAuthForm } from "@/components/UserAuthForm"
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import { Icons } from "@/components/Icons";
+import { buttonVariants } from "@/components/material-ui/Buttons/Button";
+import { UserAuthForm } from "@/components/UserAuthForm";
 
 export const metadata: Metadata = {
   title: "Create an account",
   description: "Create an account to get started.",
-}
+};
 
 export default function RegisterPage() {
   return (
@@ -18,20 +18,18 @@ export default function RegisterPage() {
       <Link
         href="/"
         className={cn(
-          buttonVariants({ variant: "ghost" }),
-          "absolute left-4 top-4 md:left-8 md:top-8"
+          buttonVariants({ variant: "elevated" }),
+          "absolute left-4 top-4 px-5 md:left-8 md:top-8"
         )}
       >
-        <>
-          <Icons.chevronLeft className="mr-2 h-4 w-4" />
-          Back
-        </>
+        <Icons.chevronLeft className="mr-2 h-4 w-4" />
+        Back
       </Link>
       <Link
         href="/login"
         className={cn(
-          buttonVariants({ variant: "ghost" }),
-          "absolute right-4 top-4 md:right-8 md:top-8"
+          buttonVariants({ variant: "elevated" }),
+          "absolute right-4 top-4 px-5 md:right-8 md:top-8"
         )}
       >
         Login
@@ -68,5 +66,5 @@ export default function RegisterPage() {
         </p>
       </div>
     </div>
-  )
+  );
 }

@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { toast } from "react-hot-toast"
+import { toast } from "react-hot-toast";
 
-import { Icons } from "@/components/Icons"
+import { Icons } from "@/components/Icons";
 
 interface ToastProps {
-  title: string
-  description?: string
+  title: string;
+  description?: string;
 }
 
 export default function CustomToast({ title, description }: ToastProps) {
@@ -40,5 +40,5 @@ export default function CustomToast({ title, description }: ToastProps) {
     {
       duration: 6000,
     }
-  )
+  );
 }

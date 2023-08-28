@@ -1,9 +1,12 @@
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/material-ui/Buttons/FAB";
+
 export default async function MainPage() {
   return (
     <>
       <section className="mx-5">
         <div className="relative mx-auto max-w-5xl pt-20 sm:pt-24 lg:pt-32">
-          <h1 className="text-center text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl">
+          <h1 className="text-center text-4xl font-extrabold tracking-tight text-black drop-shadow-xl dark:text-white sm:text-5xl lg:text-6xl">
             Welcome to the Blog Creation Site!
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-center text-lg text-slate-600 dark:text-slate-400">
@@ -23,13 +26,19 @@ export default async function MainPage() {
           </div>
           <div className="mt-6 flex justify-center space-x-6 text-sm sm:mt-10">
             <a
-              className="dark:highlight-white/20 flex h-12 w-full items-center justify-center rounded-lg bg-slate-900 px-6 text-base font-semibold text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-emerald-500 dark:hover:bg-emerald-400 sm:w-auto"
+              className={cn(
+                buttonVariants({ size: "sm", variant: "secondary" }),
+                "w-full px-6 text-base font-semibold sm:w-auto"
+              )}
               href="/register"
             >
               Get started
             </a>
             <a
-              className="dark:highlight-white/20 flex h-12 w-full items-center justify-center rounded-lg bg-slate-900 px-6 text-base font-semibold text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-emerald-500 dark:hover:bg-emerald-400 sm:w-auto"
+              className={cn(
+                buttonVariants({ size: "sm", variant: "default" }),
+                "w-full px-6 text-base font-semibold sm:w-auto"
+              )}
               href="/blog"
             >
               See blog posts
@@ -38,5 +47,5 @@ export default async function MainPage() {
         </div>
       </section>
     </>
-  )
+  );
 }

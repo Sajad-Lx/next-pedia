@@ -1,26 +1,26 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { signIn } from "next-auth/react"
-import { useForm } from "react-hook-form"
-import { Toaster } from "react-hot-toast"
-import * as z from "zod"
+import * as React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { signIn } from "next-auth/react";
+import { useForm } from "react-hook-form";
+import { Toaster } from "react-hot-toast";
+import * as z from "zod";
 
-import { ErrorName } from "@/config/errorList"
-import { cn } from "@/lib/utils"
-import { userAuthSchema, userSignUpSchema } from "@/lib/validations/auth"
-import { buttonVariants } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Icons } from "@/components/Icons"
+import { ErrorName } from "@/config/errorList";
+import { cn } from "@/lib/utils";
+import { userAuthSchema, userSignUpSchema } from "@/lib/validations/auth";
+import { Input } from "@/components/ui/input";
+import { Icons } from "@/components/Icons";
+import { buttonVariants } from "@/components/material-ui/Buttons/Button";
 
-import CustomToast from "./ui/custom-toast"
+import CustomToast from "./ui/custom-toast";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
-  formType: 1 | 2
+  formType: 1 | 2;
 }
 
-type FormData = z.infer<typeof userSignUpSchema>
+type FormData = z.infer<typeof userSignUpSchema>;
 
 /**
  * Set formType = 1 is for Sign In form and
@@ -40,12 +40,12 @@ export function UserAuthForm({
       formType === 2
         ? zodResolver(userSignUpSchema)
         : zodResolver(userAuthSchema),
-  })
-  const [isLoading, setIsLoading] = React.useState<boolean>(false)
-  const [isGitHubLoading, setIsGitHubLoading] = React.useState<boolean>(false)
+  });
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [isGitHubLoading, setIsGitHubLoading] = React.useState<boolean>(false);
 
   async function onSubmit(data: FormData) {
-    setIsLoading(true)
+    setIsLoading(true);
 
     if (formType === 2) {
       try {
@@ -55,21 +55,21 @@ export function UserAuthForm({
           headers: {
             "Content-Type": "application/json",
           },
-        })
+        });
 
         if (!res.ok) {
           return CustomToast({
             title: "Unable to create account",
             description: (await res.json()).message,
-          })
+          });
         }
       } catch (error: any) {
         return CustomToast({
           title: "Failed to Create",
           description: error.message,
-        })
+        });
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
     }
 
@@ -78,30 +78,30 @@ export function UserAuthForm({
         email: data.email.toLowerCase(),
         password: data.password,
         redirect: false,
-      })
+      });
 
       if (signInResult?.error) {
         return CustomToast({
           title: "Something went wrong.",
           description: ErrorName(signInResult?.error),
-        })
+        });
       }
 
       if (signInResult?.ok) {
         CustomToast({
           title: "Sign In Successful",
-        })
+        });
         setTimeout(() => {
-          window.location.reload()
-        }, 1500)
+          window.location.reload();
+        }, 1500);
       }
     } catch (error: any) {
       return CustomToast({
         title: "Failed to Sign In",
         description: error.message,
-      })
+      });
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   }
 
@@ -225,19 +225,19 @@ export function UserAuthForm({
         type="button"
         className={cn(buttonVariants({}))}
         onClick={() => {
-          setIsGitHubLoading(true)
-          signIn("github")
+          setIsGitHubLoading(true);
+          signIn("github");
         }}
         disabled={isLoading || isGitHubLoading}
       >
         {isGitHubLoading ? (
           <Icons.loading className="mr-2 h-4 w-4 animate-spin" />
         ) : (
-          <Icons.github className="mr-2 h-4 w-4" />
+          <Icons.github className="mr-2 h-4 w-4 fill-on-primary" />
         )}{" "}
         Github
       </button>
       <Toaster />
     </div>
-  )
+  );
 }
