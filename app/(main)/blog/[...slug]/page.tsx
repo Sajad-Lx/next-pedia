@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 import { allAuthors, allPosts } from "contentlayer/generated"
 
-import { Mdx } from "@/components/MdxComponents"
+import { Mdx } from "@/components/mdxComponents"
 
 import "@/styles/mdx.css"
 
